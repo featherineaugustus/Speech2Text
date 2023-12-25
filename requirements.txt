@@ -1,0 +1,4 @@
+SentencePiece
+datasets
+transformers
+torch

@@ -1,0 +1,13 @@
+FROM python:3.10-slim-buster
+
+WORKDIR /app
+
+COPY requirements.txt ./
+COPY main.py ./
+
+COPY * ./
+COPY librispeech_asr_demo/* librispeech_asr_demo
+COPY s2t-small-librispeech-asr/* s2t-small-librispeech-asr/
+
+RUN python -m pip install -r requirements.txt
+CMD ['python3', 'main.py']

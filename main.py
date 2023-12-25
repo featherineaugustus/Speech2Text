@@ -12,8 +12,8 @@ from datasets import load_dataset
 #########################################
 model_name = "facebook/s2t-small-librispeech-asr"
 
-model = Speech2TextForConditionalGeneration.from_pretrained(model_name)
-processor = Speech2TextProcessor.from_pretrained(model_name)
+model = Speech2TextForConditionalGeneration.from_pretrained(model_name, local_files_only=True)
+processor = Speech2TextProcessor.from_pretrained(model_name, local_files_only=True)
 
 #########################################
 # Loading Data
@@ -21,7 +21,8 @@ processor = Speech2TextProcessor.from_pretrained(model_name)
 ds = load_dataset(
     "hf-internal-testing/librispeech_asr_demo", 
     "clean", 
-    split="validation")
+    split="validation"
+    )
 
 #########################################
 # Running Code
